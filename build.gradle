@@ -1,0 +1,18 @@
+plugins {
+    id 'java'
+}
+
+group 'tk.keyhoh'
+version '1.0-SNAPSHOT'
+
+def javaVersion = JavaVersion.VERSION_14
+sourceCompatibility = javaVersion
+targetCompatibility = javaVersion
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter', version: '5.6.2'
+}
