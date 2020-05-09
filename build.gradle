@@ -5,10 +5,6 @@ plugins {
 group 'tk.keyhoh'
 version '1.0-SNAPSHOT'
 
-def javaVersion = JavaVersion.VERSION_14
-sourceCompatibility = javaVersion
-targetCompatibility = javaVersion
-
 repositories {
     mavenCentral()
 }
