@@ -5,14 +5,15 @@ plugins {
 group 'tk.keyhoh'
 version '1.0-SNAPSHOT'
 
-def javaVersion = JavaVersion.VERSION_14
-sourceCompatibility = javaVersion
-targetCompatibility = javaVersion
-
 repositories {
     mavenCentral()
 }
 
 dependencies {
+    implementation group: 'com.google.guava', name: 'guava', version: '29.0-jre'
     testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter', version: '5.6.2'
+}
+
+test {
+    useJUnitPlatform()
 }
