@@ -8,9 +8,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class AccountTest {
     @Test
     void accountEquality() {
-        var account1 = new Account();
-        assertTrue(account1.equals(account1));
-        assertFalse(account1.equals(new Account()));
-        assertFalse(account1.equals(null));
+        var account = new Account();
+        assertTrue(account.equals(account));
+        assertFalse(account.equals(new Account()));
+        assertFalse(account.equals(null));
     }
 }
