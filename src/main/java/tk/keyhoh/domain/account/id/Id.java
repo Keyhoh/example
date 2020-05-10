@@ -1,4 +1,4 @@
-package tk.keyhoh.domain.account;
+package tk.keyhoh.domain.account.id;
 
 import java.util.UUID;
 

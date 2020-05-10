@@ -3,6 +3,7 @@ package tk.keyhoh.domain.account;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+import tk.keyhoh.domain.account.name.Name;
 
 public class NameTest {
     @ParameterizedTest()

@@ -1,10 +1,10 @@
-package tk.keyhoh.domain.account;
+package tk.keyhoh.domain.account.password;
 
 import com.google.common.hash.Hashing;
 
 import java.nio.charset.StandardCharsets;
 
-class Password {
+public class Password {
     private final String value;
 
     public Password(String password) {

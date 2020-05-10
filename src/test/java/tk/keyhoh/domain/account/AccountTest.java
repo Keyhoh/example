@@ -6,11 +6,13 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class AccountTest {
+    AccountService accountService = new AccountService(new PasswordRepository());
+
     @Test
     void accountEquality() {
-        var account = new Account(null);
+        var account = accountService.createAccount(null, "password1");
         assertTrue(account.equals(account));
-        assertFalse(account.equals(new Account(null)));
+        assertFalse(account.equals(accountService.createAccount(null, "password2")));
         assertFalse(account.equals(null));
     }
 }

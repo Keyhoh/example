@@ -1,5 +1,9 @@
 package tk.keyhoh.domain.account;
 
+import tk.keyhoh.domain.account.id.Id;
+import tk.keyhoh.domain.account.password.IPassword;
+import tk.keyhoh.domain.account.password.Password;
+
 import java.util.HashMap;
 import java.util.Map;
 
