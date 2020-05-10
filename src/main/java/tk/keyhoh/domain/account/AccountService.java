@@ -11,8 +11,8 @@ public class AccountService {
         return iPassword.exists(id, password);
     }
 
-    public Account createAccount(String password) {
-        var account = new Account();
+    public Account createAccount(String name, String password) {
+        var account = new Account(name);
         iPassword.save(account.id, new Password(password));
         return account;
     }

@@ -11,7 +11,7 @@ public class AccountServiceTest {
 
     @Test
     void createAccountWithPassword() {
-        Account account = accountService.createAccount("password");
+        Account account = accountService.createAccount("name", "password");
         assertTrue(account != null && account.getClass().equals(Account.class));
     }
 
@@ -21,7 +21,7 @@ public class AccountServiceTest {
             "Correct Password, InCorrect Password, false",
     })
     void authenticateAccount(String expected, String actual, boolean result) {
-        var account = accountService.createAccount(expected);
+        var account = accountService.createAccount("name", expected);
         var password = new Password(actual);
         assertEquals(accountService.authenticate(account.id, password), result);
     }
