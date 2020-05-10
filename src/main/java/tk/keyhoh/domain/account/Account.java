@@ -8,8 +8,8 @@ public class Account {
         id = new Id();
     }
 
-    Account(String name){
-        this.name = new Name(name);
+    Account(Name name){
+        this.name = name;
     }
 
     public boolean equals(Account account) {

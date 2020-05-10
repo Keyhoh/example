@@ -12,7 +12,7 @@ public class AccountService {
     }
 
     public Account createAccount(String name, String password) {
-        var account = new Account(name);
+        var account = new Account(new Name(name));
         iPassword.save(account.id, new Password(password));
         return account;
     }
