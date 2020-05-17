@@ -1,6 +1,7 @@
 package tk.keyhoh.domain.account;
 
 import tk.keyhoh.domain.account.id.Id;
+import tk.keyhoh.domain.account.name.INameRepository;
 import tk.keyhoh.domain.account.name.Name;
 import tk.keyhoh.domain.account.password.IPasswordRepository;
 import tk.keyhoh.domain.account.password.Password;
@@ -10,8 +11,10 @@ import java.util.Map;
 import java.util.Optional;
 
 public class AccountRepository implements IAccountRepository {
+    private final INameRepository iNameRepository = new NameRepository();
     private final IPasswordRepository iPasswordRepository = new PasswordRepository();
-    private final Map<Id, Account> store = new HashMap<>();
+
+    private static final Map<Id, Account> store = new HashMap<>();
 
     @Override
     public void save(Account account, Password password) {
@@ -31,7 +34,6 @@ public class AccountRepository implements IAccountRepository {
 
     @Override
     public boolean exists(Name name, Password password) {
-        return store.entrySet().parallelStream()
-                .anyMatch(e -> e.getValue().name.equals(name) && iPasswordRepository.exists(e.getKey(), password));
+        return iNameRepository.findId(name).filter(id -> iPasswordRepository.exists(id, password)).isPresent();
     }
 }

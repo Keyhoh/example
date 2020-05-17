@@ -8,15 +8,18 @@ import tk.keyhoh.domain.account.name.INameRepository;
 import tk.keyhoh.domain.account.name.Name;
 import tk.keyhoh.exception.AlreadyExistsException;
 
+import java.util.UUID;
+
 public class NameTest {
-    private final AccountService accountService = new AccountService(new AccountRepository());
+    private final AccountService accountService = new AccountService(new AccountRepository(), new NameRepository());
     private final INameRepository iNameRepository = new NameRepository();
 
     @Test
-    void nameUniquenessTest(){
-        var account = accountService.createAccount("name", "password");
-        Assertions.assertDoesNotThrow(() -> iNameRepository.save(account.name, account.id));
-        Assertions.assertThrows(AlreadyExistsException.class, () -> iNameRepository.save(account.name, account.id));
+    void nameUniquenessTest() throws AlreadyExistsException {
+        var uniqueName = UUID.randomUUID().toString();
+        var account = accountService.createAccount(uniqueName, "password");
+        var name = new Name(uniqueName);
+        Assertions.assertThrows(AlreadyExistsException.class, () -> iNameRepository.save(name, account.id));
     }
 
     @ParameterizedTest()
