@@ -2,14 +2,15 @@ package tk.keyhoh.domain.account;
 
 import tk.keyhoh.domain.account.id.Id;
 import tk.keyhoh.domain.account.name.Name;
-import tk.keyhoh.domain.account.password.IPassword;
+import tk.keyhoh.domain.account.password.IPasswordRepository;
 import tk.keyhoh.domain.account.password.Password;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 public class AccountRepository implements IAccountRepository {
-    private final IPassword iPasswordRepository = new PasswordRepository();
+    private final IPasswordRepository iPasswordRepository = new PasswordRepository();
     private final Map<Id, Account> store = new HashMap<>();
 
     @Override
@@ -19,8 +20,8 @@ public class AccountRepository implements IAccountRepository {
     }
 
     @Override
-    public Account find(Id id) {
-        return store.get(id);
+    public Optional<Account> find(Id id) {
+        return Optional.ofNullable(store.get(id));
     }
 
     @Override
