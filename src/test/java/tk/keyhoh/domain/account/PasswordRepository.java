@@ -1,13 +1,13 @@
 package tk.keyhoh.domain.account;
 
 import tk.keyhoh.domain.account.id.Id;
-import tk.keyhoh.domain.account.password.IPassword;
+import tk.keyhoh.domain.account.password.IPasswordRepository;
 import tk.keyhoh.domain.account.password.Password;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class PasswordRepository implements IPassword {
+public class PasswordRepository implements IPasswordRepository {
     private final Map<Id, Password> store = new HashMap<>();
 
     @Override
