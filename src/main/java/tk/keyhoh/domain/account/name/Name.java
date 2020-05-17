@@ -2,6 +2,10 @@ package tk.keyhoh.domain.account.name;
 
 import java.util.Objects;
 
+/**
+ * ユーザが使用するためのID
+ * システム内でIDとして使用することはない
+ */
 public class Name {
     private final String value;
 

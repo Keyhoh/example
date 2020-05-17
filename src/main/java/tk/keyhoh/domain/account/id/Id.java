@@ -2,6 +2,9 @@ package tk.keyhoh.domain.account.id;
 
 import java.util.UUID;
 
+/**
+ * システム内でアカウントを一意に識別するためのID
+ */
 public class Id {
     private final UUID value;
 
