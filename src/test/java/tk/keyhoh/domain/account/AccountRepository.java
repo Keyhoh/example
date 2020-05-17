@@ -7,6 +7,7 @@ import tk.keyhoh.domain.account.password.Password;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 public class AccountRepository implements IAccountRepository {
     private final IPasswordRepository iPasswordRepository = new PasswordRepository();
@@ -19,8 +20,8 @@ public class AccountRepository implements IAccountRepository {
     }
 
     @Override
-    public Account find(Id id) {
-        return store.get(id);
+    public Optional<Account> find(Id id) {
+        return Optional.ofNullable(store.get(id));
     }
 
     @Override
