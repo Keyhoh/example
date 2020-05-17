@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class AccountTest {
-    AccountService accountService = new AccountService(new PasswordRepository());
+    AccountService accountService = new AccountService(new AccountRepository());
 
     @Test
     void accountEquality() {

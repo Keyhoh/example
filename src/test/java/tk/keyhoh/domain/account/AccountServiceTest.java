@@ -8,7 +8,7 @@ import tk.keyhoh.domain.account.password.Password;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class AccountServiceTest {
-    private static final AccountService accountService = new AccountService(new PasswordRepository());
+    private static final AccountService accountService = new AccountService(new AccountRepository());
 
     @Test
     void createAccountWithPassword() {
