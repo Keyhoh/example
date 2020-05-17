@@ -26,4 +26,15 @@ public class AccountServiceTest {
         var password = new Password(actual);
         assertEquals(accountService.authenticate(account.id, password), result);
     }
+
+    @ParameterizedTest
+    @CsvSource({
+            "Correct Password,   Correct Password,  true",
+            "Correct Password, InCorrect Password, false",
+    })
+    void authenticateAccountWithName(String expected, String actual, boolean result){
+        var account = accountService.createAccount("name", expected);
+        var password = new Password(actual);
+        assertEquals(accountService.authenticate(account.name, password), result);
+    }
 }

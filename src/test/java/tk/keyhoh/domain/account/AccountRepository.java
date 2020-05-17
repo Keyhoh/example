@@ -30,6 +30,7 @@ public class AccountRepository implements IAccountRepository {
 
     @Override
     public boolean exists(Name name, Password password) {
-        return false;
+        return store.entrySet().parallelStream()
+                .anyMatch(e -> e.getValue().name.equals(name) && iPasswordRepository.exists(e.getKey(), password));
     }
 }
